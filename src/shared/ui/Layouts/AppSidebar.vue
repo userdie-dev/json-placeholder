@@ -38,7 +38,7 @@
 </template>
 
 <script setup lang="ts">
-import { Braces, FileText, CircleCheckBig } from "@lucide/vue";
+import { Braces, FileText, CircleCheckBig, Images } from "@lucide/vue";
 import { useRoute } from "vue-router";
 
 import {
@@ -58,5 +58,6 @@ const route = useRoute();
 const items = [
   { title: "Посты", to: "/posts", icon: FileText },
   { title: "Задачи", to: "/todos", icon: CircleCheckBig },
+  { title: "Альбомы", to: "/albums", icon: Images },
 ];
 </script>

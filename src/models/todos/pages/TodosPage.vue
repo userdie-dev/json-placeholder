@@ -6,13 +6,16 @@
       <Button @click="openModal(null)">Добавить задачу</Button>
     </div>
 
-    <TabsRoot :tabs="tabs" />
+    <LoadingBlock v-if="isLoading" />
+
+    <TabsRoot v-else :tabs="tabs" />
   </div>
 </template>
 
 <script setup lang="ts">
 import { Button } from "@/shared/ui/button";
 import { Input } from "@/shared/ui/input";
+import { LoadingBlock } from "@/shared/ui/loadingOverlay";
 import { TabsRoot } from "@/shared/ui/tabs";
 import type { TabList } from "@/shared/ui/tabs/tabs.types";
 import { useTodosList } from "../queries/useTodosList.ts";
@@ -23,7 +26,7 @@ import type { TodoDto } from "../api/todos.dto.ts";
 import { useSearch } from "@/shared/composable/useSearch/useSearch.ts";
 import TodoList from "../components/TodoList.vue";
 
-const { data } = useTodosList();
+const { data, isLoading } = useTodosList();
 
 const { search, modal, id } = storeToRefs(useTodosStore());
 

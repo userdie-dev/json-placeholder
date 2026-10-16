@@ -6,7 +6,10 @@
       <Button @click="openModal(null)">Добавить пост</Button>
     </div>
 
+    <LoadingBlock v-if="isLoading" />
+
     <div
+      v-else
       class="min-h-0 content-start overflow-y-auto grid gap-4 auto-rows-max grid-cols-1 pr-4"
     >
       <PostCard
@@ -27,12 +30,13 @@ import PostCard from "../components/PostCard.vue";
 import { usePostsList } from "../queries/usePostsList";
 import { usePostsStore } from "../store/postsUiStore.ts";
 import PostModal from "../components/PostModal.vue";
+import { LoadingBlock } from "@/shared/ui/loadingOverlay";
 import { Input } from "@/shared/ui/input";
 import { Button } from "@/shared/ui/button";
 import { useSearch } from "@/shared/composable/useSearch/useSearch.ts";
 import type { PostDto } from "../api/posts.dto.ts";
 
-const { data } = usePostsList();
+const { data, isLoading } = usePostsList();
 
 const { search, modal, id } = storeToRefs(usePostsStore());
 
