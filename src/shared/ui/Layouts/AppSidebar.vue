@@ -3,7 +3,9 @@
     <SidebarHeader>
       <div class="flex items-center gap-2 px-2 py-1 font-semibold">
         <Braces class="size-5 shrink-0" />
-        <span class="truncate group-data-[collapsible=icon]:hidden">JSON Placeholder</span>
+        <span class="truncate group-data-[collapsible=icon]:hidden"
+          >JSON Placeholder</span
+        >
       </div>
     </SidebarHeader>
 
@@ -12,7 +14,11 @@
         <SidebarGroupContent>
           <SidebarMenu>
             <SidebarMenuItem v-for="item in items" :key="item.to">
-              <SidebarMenuButton as-child :tooltip="item.title" :is-active="route.path.startsWith(item.to)">
+              <SidebarMenuButton
+                as-child
+                :tooltip="item.title"
+                :is-active="route.path.startsWith(item.to)"
+              >
                 <RouterLink :to="item.to">
                   <component :is="item.icon" />
                   <span>{{ item.title }}</span>
@@ -29,7 +35,7 @@
 </template>
 
 <script setup lang="ts">
-import { Braces, FileText } from "@lucide/vue";
+import { Braces, FileText, CircleCheckBig } from "@lucide/vue";
 import { useRoute } from "vue-router";
 
 import {
@@ -46,5 +52,8 @@ import {
 
 const route = useRoute();
 
-const items = [{ title: "Посты", to: "/posts", icon: FileText }];
+const items = [
+  { title: "Посты", to: "/posts", icon: FileText },
+  { title: "Задачи", to: "/todos", icon: CircleCheckBig },
+];
 </script>

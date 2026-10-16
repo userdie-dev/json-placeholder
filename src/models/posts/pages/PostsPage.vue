@@ -1,5 +1,5 @@
 <template>
-  <div class="h-full grid gap-4">
+  <div class="h-full grid gap-4 content-start">
     <div class="flex gap-4 justify-between">
       <Input v-model="search" placeholder="Поиск" class="max-w-150" />
 
@@ -8,7 +8,7 @@
 
     <CardList>
       <PostCard
-        v-for="post in data?.filter((el) => el.title.includes(search))"
+        v-for="post in filtered"
         :key="post.id"
         :post
         @click="openModal(post.id)"
@@ -28,10 +28,14 @@ import PostModal from "../components/PostModal.vue";
 import { Input } from "@/shared/ui/input";
 import { Button } from "@/shared/ui/button";
 import { CardList } from "@/shared/ui/cardList";
+import { useSearch } from "@/shared/composable/useSearch/useSearch.ts";
+import type { PostDto } from "../api/posts.dto.ts";
 
 const { data } = usePostsList();
 
 const { search, modal, id } = storeToRefs(usePostsStore());
+
+const filtered = useSearch<PostDto>(search, data, "title");
 
 const openModal = (i: number | null) => {
   modal.value = true;

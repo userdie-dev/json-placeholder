@@ -1,4 +1,4 @@
 export const postsKeys = {
-  list: ["list"] as const,
+  list: ["post-list"] as const,
   detail: (id: number) => [...postsKeys.list, id] as const,
 };
