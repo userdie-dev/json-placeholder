@@ -7,7 +7,12 @@
             <div class="flex items-center justify-between mb-4">
               <DialogTitle>Пост</DialogTitle>
 
-              <Button type="button" :variant="'destructive'" @click="onDelete">
+              <Button
+                v-if="id"
+                type="button"
+                :variant="'destructive'"
+                @click="onDelete"
+              >
                 Удалить
               </Button>
             </div>

@@ -1,0 +1,17 @@
+export const AVATARS: string[] = [
+  "https://github.com/shadcn.png",
+  "https://github.com/evilrabbit.png",
+  "https://github.com/leerob.png",
+  "https://github.com/torvalds.png",
+  "https://github.com/gaearon.png",
+  "https://github.com/yyx990803.png",
+  "https://github.com/sindresorhus.png",
+  "https://github.com/tj.png",
+  "https://github.com/addyosmani.png",
+  "https://github.com/kentcdodds.png",
+  "https://github.com/antfu.png",
+  "https://github.com/sebmarkbage.png",
+  "https://github.com/rauchg.png",
+  "https://github.com/mdo.png",
+  "https://github.com/jaredpalmer.png",
+];
