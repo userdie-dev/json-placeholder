@@ -1,6 +1,6 @@
 <template>
   <Card
-    class="cursor-pointer transition-all hover:-translate-y-0.5 hover:ring-primary/40 dark:hover:bg-muted"
+    class="cursor-pointer transition-all hover:-translate-y-1 hover:ring-primary/40 dark:hover:bg-muted"
   >
     <CardHeader>
       <CardTitle class="truncate text-[20px]">{{ post.title }}</CardTitle>

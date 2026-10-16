@@ -6,16 +6,14 @@
       <Button @click="openModal(null)">Добавить пост</Button>
     </div>
 
-    <div
-      class="min-h-0 content-start overflow-y-auto grid gap-4 auto-rows-max sm:grid-cols-2 lg:grid-cols-4"
-    >
+    <CardList>
       <PostCard
         v-for="post in data?.filter((el) => el.title.includes(search))"
         :key="post.id"
         :post
         @click="openModal(post.id)"
       />
-    </div>
+    </CardList>
   </div>
 
   <PostModal v-model:open="modal" :id />
@@ -29,6 +27,7 @@ import { usePostsStore } from "../store/postsUiStore.ts";
 import PostModal from "../components/PostModal.vue";
 import { Input } from "@/shared/ui/input";
 import { Button } from "@/shared/ui/button";
+import { CardList } from "@/shared/ui/cardList";
 
 const { data } = usePostsList();
 

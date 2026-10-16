@@ -11,6 +11,7 @@ export const postApadter = {
 
   toFormValues: (post?: Post): PostFormValues => ({
     ...post,
+    userId: post?.userId ?? 1,
     body: post?.body ?? "",
     title: post?.title ?? "",
   }),
