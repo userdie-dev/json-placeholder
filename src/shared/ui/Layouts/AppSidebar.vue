@@ -1,5 +1,8 @@
 <template>
-  <Sidebar collapsible="icon">
+  <Sidebar
+    collapsible="icon"
+    class="md:left-[max(0px,calc((100vw-80rem)/2))] md:top-4 md:bottom-auto md:h-auto md:max-h-[calc(100svh-2rem)] md:overflow-hidden md:rounded-xl md:border"
+  >
     <SidebarHeader>
       <div class="flex items-center gap-2 px-2 py-1 font-semibold">
         <Braces class="size-5 shrink-0" />

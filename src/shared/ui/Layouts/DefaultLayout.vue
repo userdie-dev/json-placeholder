@@ -1,5 +1,5 @@
 <template>
-  <SidebarProvider>
+  <SidebarProvider class="mx-auto max-w-7xl">
     <AppSidebar />
 
     <main class="h-dvh min-w-0 flex-1 bg-background text-foreground">
